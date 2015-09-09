@@ -1,5 +1,5 @@
-import Hello from './component';
 import React from 'react';
+import Hello from './component.jsx';
 
 main();
 
