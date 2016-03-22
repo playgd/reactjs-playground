@@ -4,7 +4,7 @@ import React from 'react'
 import Button from '../components/button'
 
 const App = () => (
-  <div>
+  <div className='main'>
     <h1>App worked!</h1>
     <Button type='ok' onClick={() => console.log('ok')}>
       OK
