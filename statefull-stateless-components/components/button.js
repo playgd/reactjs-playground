@@ -20,8 +20,10 @@ const buttonsStyle = {
   })
 }
 
-const Button = ({ type, text }) => (
-  <button style={buttonsStyle[`${type}Button`]()}>{text}</button>
+const Button = ({ type, onClick, children }) => (
+  <button style={buttonsStyle[`${type}Button`]()} onClick={onClick}>
+    {children}
+  </button>
 )
 
 export default Button

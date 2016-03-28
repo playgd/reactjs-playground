@@ -6,8 +6,13 @@ import Button from '../components/button'
 const App = () => (
   <div>
     <h1>App worked!</h1>
-    <Button type='ok' text='OK' />
-    <Button type='cancel' text='Cancel' />
+    <Button type='ok' onClick={() => console.log('ok')}>
+      OK
+    </Button>
+
+    <Button type='cancel' onClick={() => console.log('cancel')}>
+      Cancel
+    </Button>
   </div>
 )
 
