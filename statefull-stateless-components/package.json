@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "python -m SimpleHTTPServer 9001"
+  },
   "devDependencies": {
     "jspm": "^0.16.31"
   },
