@@ -1,42 +1,33 @@
 'use strict'
 
 import React, { PureComponent } from 'react'
-
-import './css/style.css'
+import { withForm } from 'components/form'
+import Input from 'components/input'
 
 class App extends PureComponent {
-  constructor () {
-    super()
-    this.state = {
-      title: '...',
-      Component: 'div'
-    }
-  }
-
-  getTitle () {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('My app with async / await!')
-      }, 2000)
-    })
-  }
-
-  async componentDidMount () {
-    const title = await import('components/title')
-
-    this.setState({
-      title: await this.getTitle(),
-      Component: title.default
-    })
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(this.props.handleSubmit())
   }
 
   render () {
     return (
-      <div>
-        <this.state.Component>{this.state.title}</this.state.Component>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <Input name='input-name' />
+        <Input name='input-email' type='email' />
+        <button>Enviar</button>
+      </form>
     )
   }
 }
 
-export default App
+export default withForm({
+  name: 'my-form',
+  fields: {
+    'input-name': '',
+    'input-email': {
+      type: 'email',
+      placeholder: 'Preencha o e-mail'
+    }
+  }
+})(App)
