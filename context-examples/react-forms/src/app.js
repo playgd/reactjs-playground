@@ -11,10 +11,11 @@ class App extends PureComponent {
   }
 
   render () {
+    const { name, fields } = this.props.form
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Input name='input-name' />
-        <Input name='input-email' type='email' />
+      <form onSubmit={this.handleSubmit} name={name}>
+        <Input name={fields['input-name']} />
+        <Input name={fields['input-email']} type='email' />
         <button>Enviar</button>
       </form>
     )
